@@ -33,7 +33,7 @@ describe('Me (User profile) spec', () => {
 
     cy.visit('/login');
     cy.get('input[formControlName=email]').type('loic.sadou@example.com');
-    cy.get('input[formControlName=password]').type('mdploic123{enter}');
+    cy.get('input[formControlName=password]').type(`${"mdploic123"}{enter}{enter}`);
 
     cy.url().should('include', '/sessions');
 
@@ -84,7 +84,7 @@ describe('Me (User profile) spec', () => {
 
       cy.get('.mat-snack-bar-container').should('contain', 'Your account has been deleted !');
 
-      cy.url().should('eq', Cypress.config().baseUrl + '/');
+      cy.url().should('eq', Cypress.config().baseUrl);
     });
   });
 
