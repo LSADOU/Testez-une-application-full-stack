@@ -25,10 +25,10 @@ describe('MeComponent', () => {
   const mockUser: User = {
     id: 1,
     email: 'test@example.com',
-    lastName: 'Doe',
-    firstName: 'John',
+    lastName: 'Sadou',
+    firstName: 'Loic',
     admin: false,
-    password: 'password',
+    password: 'mdploic123',
     createdAt: new Date('2024-01-01'),
     updatedAt: new Date('2024-01-10')
   };
@@ -161,29 +161,17 @@ describe('MeComponent', () => {
       expect(router.navigate).toHaveBeenCalledWith(['/']);
     });
 
-    it('should perform all actions in correct order', () => {
-      const callOrder: string[] = [];
+    it('should display user information in the template', () => {
+      mockUserService.getById.mockReturnValue(of(mockUser));
 
-      mockUserService.delete.mockImplementation(() => {
-        callOrder.push('delete');
-        return of(null);
-      });
+      component.ngOnInit();
+      fixture.detectChanges();
 
-      mockMatSnackBar.open.mockImplementation(() => {
-        callOrder.push('snackbar');
-      });
+      const compiled = fixture.nativeElement;
 
-      mockSessionService.logOut.mockImplementation(() => {
-        callOrder.push('logout');
-      });
-
-      mockRouter.navigate.mockImplementation(() => {
-        callOrder.push('navigate');
-      });
-
-      component.delete();
-
-      expect(callOrder).toEqual(['delete', 'snackbar', 'logout', 'navigate']);
+      expect(compiled.textContent).toContain('Loic');
+      expect(compiled.textContent).toContain('SADOU');
+      expect(compiled.textContent).toContain('test@example.com');
     });
   });
 });

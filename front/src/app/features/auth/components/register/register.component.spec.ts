@@ -82,27 +82,27 @@ describe('RegisterComponent', () => {
     it('should call authService.register with form values', () => {
       component.form.setValue({
         email: 'test@example.com',
-        firstName: 'John',
-        lastName: 'Doe',
-        password: 'password123'
+        firstName: 'Loic',
+        lastName: 'Sadou',
+        password: 'mdploic123'
       });
 
       component.submit();
 
       expect(authService.register).toHaveBeenCalledWith({
         email: 'test@example.com',
-        firstName: 'John',
-        lastName: 'Doe',
-        password: 'password123'
+        firstName: 'Loic',
+        lastName: 'Sadou',
+        password: 'mdploic123'
       });
     });
 
     it('should navigate to /login on successful registration', () => {
       component.form.setValue({
         email: 'test@example.com',
-        firstName: 'John',
-        lastName: 'Doe',
-        password: 'password123'
+        firstName: 'Loic',
+        lastName: 'Sadou',
+        password: 'mdploic123'
       });
 
       component.submit();
@@ -113,9 +113,9 @@ describe('RegisterComponent', () => {
     it('should not set onError to true on successful registration', () => {
       component.form.setValue({
         email: 'test@example.com',
-        firstName: 'John',
-        lastName: 'Doe',
-        password: 'password123'
+        firstName: 'Loic',
+        lastName: 'Sadou',
+        password: 'mdploic123'
       });
 
       component.submit();
@@ -134,9 +134,9 @@ describe('RegisterComponent', () => {
     it('should set onError to true when registration fails', () => {
       component.form.setValue({
         email: 'test@example.com',
-        firstName: 'John',
-        lastName: 'Doe',
-        password: 'password123'
+        firstName: 'Loic',
+        lastName: 'Sadou',
+        password: 'mdploic123'
       });
 
       component.submit();
@@ -147,9 +147,9 @@ describe('RegisterComponent', () => {
     it('should not navigate when registration fails', () => {
       component.form.setValue({
         email: 'test@example.com',
-        firstName: 'John',
-        lastName: 'Doe',
-        password: 'password123'
+        firstName: 'Loic',
+        lastName: 'Sadou',
+        password: 'mdploic123'
       });
 
       component.submit();
@@ -164,9 +164,9 @@ describe('RegisterComponent', () => {
 
       component.form.setValue({
         email: 'existing@example.com',
-        firstName: 'John',
-        lastName: 'Doe',
-        password: 'password123'
+        firstName: 'Loic',
+        lastName: 'Sadou',
+        password: 'mdploic123'
       });
 
       component.submit();

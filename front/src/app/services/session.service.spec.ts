@@ -33,8 +33,8 @@ describe('SessionService', () => {
         type: 'Bearer',
         id: 1,
         username: 'test@example.com',
-        firstName: 'John',
-        lastName: 'Doe',
+        firstName: 'Loic',
+        lastName: 'Sadou',
         admin: false
       };
 
@@ -49,8 +49,8 @@ describe('SessionService', () => {
         type: 'Bearer',
         id: 1,
         username: 'test@example.com',
-        firstName: 'John',
-        lastName: 'Doe',
+        firstName: 'Loic',
+        lastName: 'Sadou',
         admin: false
       };
 
@@ -65,8 +65,8 @@ describe('SessionService', () => {
         type: 'Bearer',
         id: 1,
         username: 'test@example.com',
-        firstName: 'John',
-        lastName: 'Doe',
+        firstName: 'Loic',
+        lastName: 'Sadou',
         admin: false
       };
 
@@ -83,14 +83,13 @@ describe('SessionService', () => {
 
   describe('logOut', () => {
     beforeEach(() => {
-      // Set up an authenticated state first
       const mockUser: SessionInformation = {
         token: 'fake-jwt-token',
         type: 'Bearer',
         id: 1,
         username: 'test@example.com',
-        firstName: 'John',
-        lastName: 'Doe',
+        firstName: 'Loic',
+        lastName: 'Sadou',
         admin: false
       };
       service.logIn(mockUser);
@@ -113,7 +112,6 @@ describe('SessionService', () => {
 
       service.$isLogged().subscribe((isLogged: boolean) => {
         emissionCount++;
-        // Skip the first emission (from logIn in beforeEach)
         if (emissionCount === 2) {
           expect(isLogged).toBe(false);
           done();
@@ -138,14 +136,12 @@ describe('SessionService', () => {
         type: 'Bearer',
         id: 1,
         username: 'test@example.com',
-        firstName: 'John',
-        lastName: 'Doe',
+        firstName: 'Loic',
+        lastName: 'Sadou',
         admin: false
       };
 
       service.logIn(mockUser);
-
-      // New subscription after logIn
       service.$isLogged().subscribe((isLogged: boolean) => {
         expect(isLogged).toBe(true);
         done();
@@ -159,8 +155,8 @@ describe('SessionService', () => {
         type: 'Bearer',
         id: 1,
         username: 'test@example.com',
-        firstName: 'John',
-        lastName: 'Doe',
+        firstName: 'Loic',
+        lastName: 'Sadou',
         admin: false
       };
 
@@ -168,9 +164,9 @@ describe('SessionService', () => {
         emissions.push(isLogged);
 
         if (emissions.length === 3) {
-          expect(emissions[0]).toBe(false); // Initial state
-          expect(emissions[1]).toBe(true);  // After logIn
-          expect(emissions[2]).toBe(false); // After logOut
+          expect(emissions[0]).toBe(false);
+          expect(emissions[1]).toBe(true);
+          expect(emissions[2]).toBe(false);
           done();
         }
       });
